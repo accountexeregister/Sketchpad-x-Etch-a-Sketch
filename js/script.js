@@ -5,9 +5,9 @@ for (let i = 0; i < 16 * 16; i++) {
 
     //add ".div-square" class to square created
     square.classList.add("div-square");
-    
+
     //insert exampleText to square variable
-    square.textContent = "yuh";
+    //square.textContent = "yuh";
     
     //Add mouseover event listener to the square divs
     //The event listener executes function that changes colour of grid square divs
