@@ -4,3 +4,15 @@
     grid-template-rows: repeat(16, 10px);
     gap: 10px;
 }
+
+.div-hover {
+    background-color: green;
+    color: lightblue;
+}
+
+.div-square {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
