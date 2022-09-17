@@ -1,8 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    gap: 10px;
+    
 }
 
 .div-hover {
@@ -12,8 +16,13 @@
 
 .div-square {
     padding: 10px;
+    
     border: 5px solid yellow;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button {
+    text-align: center;
 }
