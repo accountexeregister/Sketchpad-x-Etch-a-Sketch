@@ -149,10 +149,12 @@ function changeSquareColour() {
     //Add ".div-hover" class to the square div
     this.classList.add("div-hover");
     */
-    //store random colour string as randomColor variable
-    const randomColour = Math.floor(Math.random()*16777215).toString(16);
+    //generate random rgb value
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
     //set background colour style on square using random colour string
-    this.style.setProperty("background-color", "#" + randomColour);
+    this.style.setProperty("background-color", `rgb(${r}, ${g}, ${b})`);
 }
 
 function revertColourChange() {
