@@ -1,3 +1,10 @@
+ //add "red" attribute 
+ document.createAttribute("red");
+ //add "green" attribute
+ document.createAttribute("green");
+ //add "blue" attribute 
+ document.createAttribute("blue");
+
 //create 100 * 100 square grid
 createSquareGrid(100);
 
@@ -90,7 +97,6 @@ function createSquareGrid(squareSides) {
     
         //add ".div-square" class to square created
         square.classList.add("div-square");
-    
        
         
         //Add mouseover event listener to the square divs
@@ -149,14 +155,50 @@ function changeSquareColour() {
     //Add ".div-hover" class to the square div
     this.classList.add("div-hover");
     */
-    //generate random rgb value
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
+
+    //initialise r, g and b variables
+    let r;
+    let g;
+    let b;
+
+    //generate random rgb value if colour does not exist yet
+    if (this.getAttribute("red") === null && this.getAttribute("green") 
+        === null && this.getAttribute("blue") === null) {
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+    } // else get red, green and blue values and multiply them by 0.9 or 90%;
+    else { 
+        r = this.getAttribute("red") * 0.9;
+        g = this.getAttribute("green") * 0.9;
+        b = this.getAttribute("blue") * 0.9;
+    }
+    //set the "red", "green" and "blue" attribute to their values
+    this.setAttribute("red", r);
+    this.setAttribute("green", g);
+    this.setAttribute("blue", b);
+    
     //set background colour style on square using random colour string
     this.style.setProperty("background-color", `rgb(${r}, ${g}, ${b})`);
 }
 
+function getRGBValue(rgbText) {
+
+    while (rgbText.includes(",")) {
+
+    }
+    //remove first letter until first letter is a number
+    while (isNaN(parseInt(rgbText.charAt(0)))) {
+        rgbText = rgbText.slice(1, rgbText.length);
+    }
+
+    //remove last letter until last letter is a number
+    while (isNaN(parseInt(rgbText.charAt(rgbText.length - 1)))) {
+        rgbText = rgbText.slice(0, rgbText.length - 1);
+    }
+
+    
+}
 function revertColourChange() {
     /*Removed temporarily
     //Remove ".div-hover" class from the square div
