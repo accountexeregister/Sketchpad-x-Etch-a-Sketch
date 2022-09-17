@@ -145,13 +145,24 @@ function removeContainer() {
     return [containerWidth, containerHeight];
 }
 function changeSquareColour() {
+    /*Removed temporarily 
     //Add ".div-hover" class to the square div
     this.classList.add("div-hover");
+    */
+    //store random colour string as randomColor variable
+    const randomColour = Math.floor(Math.random()*16777215).toString(16);
+    //set background colour style on square using random colour string
+    this.style.setProperty("background-color", "#" + randomColour);
 }
 
 function revertColourChange() {
+    /*Removed temporarily
     //Remove ".div-hover" class from the square div
     this.classList.remove("div-hover");
+    */
+
+    //remove background colour property from square
+    this.style.removeProperty("background-color");
 }
 
 
