@@ -1,3 +1,25 @@
+//create 100 * 100 square grid
+createSquareGrid(100);
+
+//store initial container array dimensions in initialArrayDimensions and remove initial container
+let initialArrayDimensions = removeContainer();
+
+//store initial width of container as initialContainerWidth
+let initialContainerWidth = initialArrayDimensions[0];
+//store initial height of container as initialContainerHeight
+let initialContainerHeight = initialArrayDimensions[1];
+
+//set initialContainerWidth = initialContainerHeight (maximum value used as common value)
+if (initialContainerWidth > initialContainerHeight) {
+    initialContainerHeight = initialContainerWidth;   
+} else {
+    initialContainerWidth = initialContainerHeight;
+}
+
+//create new container with initialContainerWidth and initialContainerHeight(both same size)
+//to store 16 * 16 squares
+createContainer(initialContainerWidth, initialContainerHeight, 16);
+
 //create 16 * 16 square grid
 createSquareGrid(16);
 
@@ -39,10 +61,7 @@ function promptSquareSideNum() {
     //previously deleted container
     createSquareGrid(squareSideNum);
 
-    //adjust container with width: containerWidth and height: containerHeight
-    const container = document.querySelector(".container");
-    container.style.setProperty("max-width", containerWidth);
-    container.style.setProperty("max-height", containerHeight);
+ 
     
 }
 
@@ -52,9 +71,9 @@ function createContainer(containerWidth, containerHeight, squareSides) {
     //add ".container" class to container created;
     container.classList.add("container");
 
-    //adjust container with width: containerWidth and height: containerHeight
-    container.style.width = containerWidth;
-    container.style.height = containerHeight;
+    //adjust container with min-width: containerWidth and min-height: containerHeight
+    container.style.setProperty("height", `${containerHeight}px`);
+    container.style.setProperty("width", `${containerWidth}px`);
 
     //adjust container grid-template-columns and grid-template-rows with new squareSides
     container.style.setProperty("grid-template-columns", `repeat(${squareSides}, 1fr)`);
@@ -72,8 +91,7 @@ function createSquareGrid(squareSides) {
         //add ".div-square" class to square created
         square.classList.add("div-square");
     
-        //insert exampleText to square variable
-        //square.textContent = "yuh";
+       
         
         //Add mouseover event listener to the square divs
         //The event listener executes function that changes colour of grid square divs
@@ -87,7 +105,34 @@ function createSquareGrid(squareSides) {
         //append square created to ".container" div
         document.querySelector(".container").
                  appendChild(square);
+
+         
     }
+
+    /*Removed 
+    //adjust squares height to be same as width
+    document.querySelectorAll(".div-square", (square) => {
+    let squareWidth = square.clientWidth;
+    square.style.height = `${squareWidth}px`;
+    });
+
+    //check to see if width of square of height of square is bigger
+    let square = document.querySelector(".div-square");
+
+    //if square width > square height
+    if (square.clientWidth > square.clientHeight) {
+        //store difference between width and height of square in variable widthMinusHeight
+        let widthMinusHeight = square.clientWidth - square.clientHeight;
+        //set ".container" column gap to be widthMinusHeight px
+        document.querySelector(".container").style.setProperty("column-gap", `${widthMinusHeight}px`);
+    } //else if square height > square width
+    else if (square.clientHeight > square.clientWidth) {
+        //store difference between height and width of square in variable heightMinusWidth
+        let heightMinusWidth = square.clientHeight - square.clientWidth;
+        //set ".container" row gap to be heightMinusWidth px
+        document.querySelector(".container").style.setProperty("row-gap", `${heightMinusWidth}px`);
+    }
+    */
 }
 function removeContainer() {
     //get width of container and store in variable containerWidth

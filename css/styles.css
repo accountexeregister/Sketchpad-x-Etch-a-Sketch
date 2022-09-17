@@ -4,8 +4,8 @@
 
 .container {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(100, 1fr);
+    grid-template-rows: repeat(100, 1fr);
     
 }
 
@@ -25,4 +25,5 @@
 
 button {
     text-align: center;
+    padding: 40px;
 }
