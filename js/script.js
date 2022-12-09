@@ -4,7 +4,9 @@
  document.createAttribute("green");
  //add "blue" attribute 
  document.createAttribute("blue");
-
+ document.ondblclick = function(e) {
+    e.preventDefault();
+}
 //create 100 * 100 square grid
 createSquareGrid(100);
 
