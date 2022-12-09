@@ -99,14 +99,16 @@ function createSquareGrid(squareSides) {
         square.classList.add("div-square");
        
         
-        //Add mouseover event listener to the square divs
+        //Add mouseover and touchstart event listener to the square divs
         //The event listener executes function that changes colour of grid square divs
         //The colour change leaves pixelated trail through the grid like a pen would
         square.addEventListener("mouseover", changeSquareColour);
+        square.addEventListener("touchstart", changeSquareColour);
     
-        //Add mouseend event listener to the square divs
+        //Add mouseend and touchend event listener to the square divs
         //The event listener executes function that reverts the colour change of grid squares
         square.addEventListener("mouseleave", revertColourChange);
+        square.addEventListener("touchend", changeSquareColour);
     
         //append square created to ".container" div
         document.querySelector(".container").
