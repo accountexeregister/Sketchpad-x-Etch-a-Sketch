@@ -172,9 +172,9 @@ function changeSquareColour() {
         b = Math.floor(Math.random() * 256);
     } // else get red, green and blue values and multiply them by 0.9 or 90%;
     else { 
-        r = this.getAttribute("red") * 0.9;
-        g = this.getAttribute("green") * 0.9;
-        b = this.getAttribute("blue") * 0.9;
+        r = this.getAttribute("red") * 0.95;
+        g = this.getAttribute("green") * 0.95;
+        b = this.getAttribute("blue") * 0.95;
     }
     //set the "red", "green" and "blue" attribute to their values
     this.setAttribute("red", r);
