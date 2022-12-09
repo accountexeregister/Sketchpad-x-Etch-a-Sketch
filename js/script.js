@@ -160,21 +160,27 @@ function changeSquareColour() {
     */
 
     //initialise r, g and b variables
-    let r;
-    let g;
-    let b;
+    let r = this.getAttribute("red");
+    let g = this.getAttribute("green");
+    let b = this.getAttribute("blue");
 
     //generate random rgb value if colour does not exist yet
-    if (this.getAttribute("red") === null && this.getAttribute("green") 
-        === null && this.getAttribute("blue") === null) {
+    if ((r === null && g === null && b === null)) {
         r = Math.floor(Math.random() * 256);
         g = Math.floor(Math.random() * 256);
         b = Math.floor(Math.random() * 256);
-    } // else get red, green and blue values and multiply them by 0.9 or 90%;
+    }
+    // Generate random rgb value if colour becomes close to black
+    else if (((r * 1 + g * 1 + b * 1) / 3) < 33) {
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+    }
+    // else get red, green and blue values and multiply them by 0.9 or 90%;
     else { 
-        r = this.getAttribute("red") * 0.95;
-        g = this.getAttribute("green") * 0.95;
-        b = this.getAttribute("blue") * 0.95;
+        r = r * 0.95;
+        g = g * 0.95;
+        b = b * 0.95;
     }
     //set the "red", "green" and "blue" attribute to their values
     this.setAttribute("red", r);
