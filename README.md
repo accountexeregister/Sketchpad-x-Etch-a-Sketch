@@ -1,4 +1,4 @@
-# Etch-a-Sketch
+# Sketchpad-x-Etch-a-Sketch
 
 Browser version of crossover of a sketchpad and an Etch-A-Sketch.  
 Link: https://accountexeregister.github.io/Sketchpad-x-Etch-a-Sketch/
